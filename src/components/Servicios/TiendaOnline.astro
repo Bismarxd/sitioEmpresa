@@ -1,0 +1,161 @@
+<div class="relative min-h-screen">
+  <!-- Fondo -->
+ <div class="absolute inset-0 bg-white dark:bg-gray-950 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950" />
+  <div class="absolute inset-0 overflow-hidden">
+    <svg class="absolute h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="ray-gradient-1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" class="text-purple-400/30 dark:text-purple-700/20" stop-color="currentColor" />
+          <stop offset="100%" class="text-transparent" stop-color="currentColor" />
+        </linearGradient>
+        <linearGradient id="ray-gradient-2" x1="100%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" class="text-blue-400/30 dark:text-blue-700/20" stop-color="currentColor" />
+          <stop offset="100%" class="text-transparent" stop-color="currentColor" />
+        </linearGradient>
+      </defs>
+      <polygon points="0,0 100,0 50,100" fill="url(#ray-gradient-1)" />
+      <polygon points="100,0 100,100 0,50" fill="url(#ray-gradient-2)" />
+    </svg>
+  </div>
+</div>
+  <!-- Contenido -->
+  <div class="pt-36 p-10 text-white z-30 relative">
+    <div class="flex gap-8">
+      <div class="p-2 flex flex-col md:flex-row gap-10 md:gap-2">
+        <div class="flex-1/2 md:p-5 md:m-3">
+          <h2 class="text-4xl">Tiendas Online</h2>
+          <p class="m-3">
+            En nuestra empresa nos dedicamos a crear tiendas online modernas,
+            seguras y fáciles de usar. Desarrollamos soluciones a medida que
+            permiten a nuestros clientes exhibir y vender sus productos o
+            servicios las 24 horas del día, con un diseño atractivo y
+            herramientas intuitivas para la administración eficiente del
+            negocio.
+          </p>
+
+          <div class="text-center mt-4 p-4">
+            <button class="hover:cursor-pointer"> Contactanos</button>
+          </div>
+        </div>
+        <div class="flex-1/2">
+          <div
+            class="p-2 rounded-3xl bg-white shadow-[15px_15px_0px_rgba(0,0,0,0.4)] inline-block"
+          >
+            <img
+              class="rounded-2xl shadow-2xl"
+              src="./servicios/tiendaOnline.png"
+              alt="desarolloweb1"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Boton de contacto */
+  button,
+  button::after {
+    padding: 16px 20px;
+    font-size: 18px;
+    background: linear-gradient(45deg, transparent 5%, #016387 5%);
+    border: 0;
+    color: #fff;
+    letter-spacing: 3px;
+    line-height: 1;
+    box-shadow: 6px 0px 0px #00e6f6;
+    outline: transparent;
+    position: relative;
+  }
+
+  button::after {
+    --slice-0: inset(50% 50% 50% 50%);
+    --slice-1: inset(80% -6px 0 0);
+    --slice-2: inset(50% -6px 30% 0);
+    --slice-3: inset(10% -6px 85% 0);
+    --slice-4: inset(40% -6px 43% 0);
+    --slice-5: inset(80% -6px 5% 0);
+    content: "Contactanos";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      transparent 3%,
+      #00e6f6 3%,
+      #00e6f6 5%,
+      #0287b8 5%
+    );
+    text-shadow:
+      -3px -3px 0px #f5f5f5,
+      3px 3px 0px #00e6f6;
+    clip-path: var(--slice-0);
+  }
+
+  button:hover::after {
+    animation: 1s glitch;
+    animation-timing-function: steps(2, end);
+  }
+
+  @keyframes glitch {
+    0% {
+      clip-path: var(--slice-1);
+      transform: translate(-20px, -10px);
+    }
+
+    10% {
+      clip-path: var(--slice-3);
+      transform: translate(10px, 10px);
+    }
+
+    20% {
+      clip-path: var(--slice-1);
+      transform: translate(-10px, 10px);
+    }
+
+    30% {
+      clip-path: var(--slice-3);
+      transform: translate(0px, 5px);
+    }
+
+    40% {
+      clip-path: var(--slice-2);
+      transform: translate(-5px, 0px);
+    }
+
+    50% {
+      clip-path: var(--slice-3);
+      transform: translate(5px, 0px);
+    }
+
+    60% {
+      clip-path: var(--slice-4);
+      transform: translate(5px, 10px);
+    }
+
+    70% {
+      clip-path: var(--slice-2);
+      transform: translate(-10px, 10px);
+    }
+
+    80% {
+      clip-path: var(--slice-5);
+      transform: translate(20px, -10px);
+    }
+
+    90% {
+      clip-path: var(--slice-1);
+      transform: translate(-10px, 0px);
+    }
+
+    100% {
+      clip-path: var(--slice-1);
+      transform: translate(0);
+    }
+  }
+</style>

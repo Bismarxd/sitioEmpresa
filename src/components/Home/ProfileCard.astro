@@ -1,0 +1,263 @@
+---
+const tarjetas = [
+  {
+    titulo: "Desarrollo Web A Medida",
+    info: "Páginas personales, corporativas o institucionales con funcionalidades específicas y diseño personalizado",
+    features: [
+      "Diseño Moderno y Responsivo",
+      "Secciones Editables o Estáticas",
+      "Portafolios, Blog, Landing Page, etc",
+    ],
+    link: "/desarolloweb",
+  },
+  {
+    titulo: "Tiendas Online",
+    info: "E-commerce para empresas, negocios o emprendedores para mostrar sus productos",
+    features: [
+      "Catálogo de Productos",
+      "Carrito de Compras",
+      "Panel de Administración",
+    ],
+    link: "/tiendaonline",
+  },
+  {
+    titulo: "Desarrollo de Aplicaciones Móviles",
+    info: "Aplicaciones móviles para Android, enfocadas para resolver necesidades de tu negocio o emprendimiento",
+    features: [
+      "Ideal para mostrar información, formularios o conectar con redes sociales y WhatsApp.",
+      "Diseño Funcional y Adaptable",
+    ],
+    link: "/desarollomovil",
+  },
+  {
+    titulo: "Mantenimiento y soporte web",
+    info: "Nos encargamos de mantener tu sitio web actualizado, seguro y en funcionamiento.",
+    features: [
+      "Actualización y Corrección de Errores",
+      "Revisión Técnica",
+    ],
+    link: "/mantenimientosoporte",
+  },
+];
+---
+
+<div class="relative w-full noselect">
+  <!-- Carrusel horizontal -->
+  <div
+    class="flex overflow-x-auto gap-4 mt-5 px-2 scroll-smooth snap-x snap-mandatory scrollbar-hide"
+  >
+    {tarjetas.map((tarjeta) => (
+      <div class="plan min-w-[300px] snap-start shrink-0">
+        <div class="inner">
+          <span class="pricing"><span></span></span>
+          <p class="title">{tarjeta.titulo}</p>
+          <p class="info">{tarjeta.info}</p>
+          <ul class="features">
+            {tarjeta.features.map((feature) => (
+              <li>
+                <span class="icon">
+                  <svg
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      fill="currentColor"
+                      d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                    ></path>
+                  </svg>
+                </span>
+                <span set:html={feature}></span>
+              </li>
+            ))}
+          </ul>
+          <div class="action">
+            <a class="button" href={tarjeta.link}>Ver Más</a>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .plan {
+    border-radius: 16px;
+    box-shadow: 0 30px 30px -25px rgba(0, 38, 255, 0.205);
+    padding: 10px;
+    background-color: #fff;
+    color: #697e91;
+    max-width: 300px;
+  }
+
+  .plan strong {
+    font-weight: 600;
+    color: #425275;
+  }
+
+  .plan .inner {
+    align-items: center;
+    padding: 20px;
+    padding-top: 40px;
+    background-color: #ecf0ff;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .plan .pricing {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #bed6fb;
+    border-radius: 99em 0 0 99em;
+    display: flex;
+    align-items: center;
+    padding: 0.625em 0.75em;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #425475;
+  }
+
+  .plan .pricing small {
+    color: #707a91;
+    font-size: 0.75em;
+    margin-left: 0.25em;
+  }
+
+  .plan .title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #425675;
+  }
+
+  .plan .title + * {
+    margin-top: 0.75rem;
+  }
+
+  .plan .info + * {
+    margin-top: 1rem;
+  }
+
+  .plan .features {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .plan .features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .plan .features li + * {
+    margin-top: 0.75rem;
+  }
+
+  .plan .features .icon {
+    background-color: #1fcac5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+  }
+
+  .plan .features .icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .plan .features + * {
+    margin-top: 1.25rem;
+  }
+
+  .plan .action {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+
+  .plan .button {
+    background-color: #052b65;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.125rem;
+    text-align: center;
+    border: 0;
+    outline: 0;
+    width: 100%;
+    padding: 0.625em 0.75em;
+    text-decoration: none;
+  }
+
+  .plan .button:hover,
+  .plan .button:focus {
+    background-color: #15306e;
+  }
+
+  /* carrusel */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE y Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .cursor-grabbing {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+  }
+  .overflow-x-auto {
+    cursor: grab;
+    cursor: -webkit-grab;
+  }
+
+  .noselect {
+    user-select: none;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE/Edge */
+  }
+</style>
+
+<script is:inline>
+  window.addEventListener("DOMContentLoaded", () => {
+    const scrollContainer = document.querySelector(".overflow-x-auto");
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    scrollContainer.addEventListener("mousedown", (e) => {
+      isDown = true;
+      scrollContainer.classList.add("cursor-grabbing");
+      startX = e.pageX - scrollContainer.offsetLeft;
+      scrollLeft = scrollContainer.scrollLeft;
+    });
+
+    scrollContainer.addEventListener("mouseleave", () => {
+      isDown = false;
+      scrollContainer.classList.remove("cursor-grabbing");
+    });
+
+    scrollContainer.addEventListener("mouseup", () => {
+      isDown = false;
+      scrollContainer.classList.remove("cursor-grabbing");
+    });
+
+    scrollContainer.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - scrollContainer.offsetLeft;
+      const walk = (x - startX) * 2;
+      scrollContainer.scrollLeft = scrollLeft - walk;
+    });
+  });
+</script>

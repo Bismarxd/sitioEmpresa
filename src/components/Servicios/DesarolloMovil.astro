@@ -1,0 +1,198 @@
+<div class="relative min-h-screen">
+  <!-- Fondo -->
+  <div class="absolute inset-0 bg-white dark:bg-gray-950 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.3] dark:opacity-[0.2]">
+      <svg
+        width="100%"
+        height="100%"
+        viewBox="0 0 1200 600"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient
+            id="wave-gradient-1"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
+            <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"></stop>
+            <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.3"></stop>
+          </linearGradient>
+          <linearGradient
+            id="wave-gradient-2"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
+            <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.3"></stop>
+            <stop offset="100%" stop-color="#ec4899" stop-opacity="0.3"></stop>
+          </linearGradient>
+          <linearGradient
+            id="wave-gradient-3"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
+            <stop offset="0%" stop-color="#ec4899" stop-opacity="0.3"></stop>
+            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.3"></stop>
+          </linearGradient>
+        </defs>
+
+        <path
+          d="M0,50 C100,100 200,0 300,50 C400,100 500,0 600,50 C700,100 800,0 900,50 C1000,100 1100,0 1200,50 V600 H0 Z"
+          fill="url(#wave-gradient-1)"></path>
+        <path
+          d="M0,150 C100,200 200,100 300,150 C400,200 500,100 600,150 C700,200 800,100 900,150 C1000,200 1100,100 1200,150 V600 H0 Z"
+          fill="url(#wave-gradient-2)"></path>
+        <path
+          d="M0,250 C100,300 200,200 300,250 C400,300 500,200 600,250 C700,300 800,200 900,250 C1000,300 1100,200 1200,250 V600 H0 Z"
+          fill="url(#wave-gradient-3)"></path>
+      </svg>
+    </div>
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-white via-white/0 to-white dark:from-gray-950 dark:via-gray-950/0 dark:to-gray-950"
+    >
+    </div>
+  </div>
+  <!-- Contenido -->
+  <div class="relative pt-36 p-10 text-white z-30">
+    <div class="flex gap-8">
+      <div class="p-2 flex flex-col md:flex-row gap-10 md:gap-2">
+        <div class="flex-1/2 md:p-5 md:m-3">
+          <h2 class="text-4xl">Servicio de Desarrollo Móvil</h2>
+          <p class="m-3">
+            Creamos aplicaciones móviles personalizadas utilizando <strong
+              >React Native</strong
+            >, la tecnología que nos permite desarrollar apps nativas para
+            Android con un solo código base.
+          </p>
+
+          <div class="relative text-center mt-4 p-4">
+            <button class="hover:cursor-pointer"> Contactanos</button>
+          </div>
+        </div>
+        <div class="flex-1/2">
+          <div
+            class="p-2 rounded-3xl bg-white shadow-[15px_15px_0px_rgba(0,0,0,0.4)] inline-block"
+          >
+            <img
+              class="rounded-2xl shadow-2xl"
+              src="./servicios/desarollomovil.png"
+              alt="desarolloweb1"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Boton de contacto */
+  button,
+  button::after {
+    padding: 16px 20px;
+    font-size: 18px;
+    background: linear-gradient(45deg, transparent 5%, #016387 5%);
+    border: 0;
+    color: #fff;
+    letter-spacing: 3px;
+    line-height: 1;
+    box-shadow: 6px 0px 0px #00e6f6;
+    outline: transparent;
+    position: relative;
+  }
+
+  button::after {
+    --slice-0: inset(50% 50% 50% 50%);
+    --slice-1: inset(80% -6px 0 0);
+    --slice-2: inset(50% -6px 30% 0);
+    --slice-3: inset(10% -6px 85% 0);
+    --slice-4: inset(40% -6px 43% 0);
+    --slice-5: inset(80% -6px 5% 0);
+    content: "Contactanos";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      transparent 3%,
+      #00e6f6 3%,
+      #00e6f6 5%,
+      #0287b8 5%
+    );
+    text-shadow:
+      -3px -3px 0px #f5f5f5,
+      3px 3px 0px #00e6f6;
+    clip-path: var(--slice-0);
+  }
+
+  button:hover::after {
+    animation: 1s glitch;
+    animation-timing-function: steps(2, end);
+  }
+
+  @keyframes glitch {
+    0% {
+      clip-path: var(--slice-1);
+      transform: translate(-20px, -10px);
+    }
+
+    10% {
+      clip-path: var(--slice-3);
+      transform: translate(10px, 10px);
+    }
+
+    20% {
+      clip-path: var(--slice-1);
+      transform: translate(-10px, 10px);
+    }
+
+    30% {
+      clip-path: var(--slice-3);
+      transform: translate(0px, 5px);
+    }
+
+    40% {
+      clip-path: var(--slice-2);
+      transform: translate(-5px, 0px);
+    }
+
+    50% {
+      clip-path: var(--slice-3);
+      transform: translate(5px, 0px);
+    }
+
+    60% {
+      clip-path: var(--slice-4);
+      transform: translate(5px, 10px);
+    }
+
+    70% {
+      clip-path: var(--slice-2);
+      transform: translate(-10px, 10px);
+    }
+
+    80% {
+      clip-path: var(--slice-5);
+      transform: translate(20px, -10px);
+    }
+
+    90% {
+      clip-path: var(--slice-1);
+      transform: translate(-10px, 0px);
+    }
+
+    100% {
+      clip-path: var(--slice-1);
+      transform: translate(0);
+    }
+  }
+</style>

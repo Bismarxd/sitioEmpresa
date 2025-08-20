@@ -1,0 +1,93 @@
+<div class="md:hidden bg-[#474747da] text-white p-4 shadow-lg relative z-50">
+  <!-- Botón hamburguesa -->
+  <div class="flex justify-between items-center">
+    <button
+      onclick="document.getElementById('mobileMenu').classList.toggle('hidden')"
+      class="focus:outline-none"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Menú desplegable en pantalla completa -->
+  <div
+    id="mobileMenu"
+    class="hidden fixed top-0 left-0 w-full h-full bg-[#2b2b2b] text-white z-40 p-6 overflow-y-auto"
+  >
+    <!-- Botón cerrar -->
+    <div class="flex justify-end">
+      <button
+        onclick="document.getElementById('mobileMenu').classList.add('hidden')"
+        class="text-white text-2xl font-bold"
+      >
+        ×
+      </button>
+    </div>
+
+    <!-- Enlaces -->
+    <nav class="mt-6 space-y-4 text-lg">
+      <a href="/" class="block hover:bg-[#2c4d66] rounded px-3 py-2">Inicio</a>
+      <a href="/acercaDe" class="block hover:bg-[#2c4d66] rounded px-3 py-2"
+        >Acerca de</a
+      >
+      <a href="/projectos" class="block hover:bg-[#2c4d66] rounded px-3 py-2"
+        >Proyectos</a
+      >
+      <details class="group">
+        <summary
+          class="cursor-pointer hover:bg-[#2c4d66] rounded px-3 py-2 flex justify-between items-center"
+        >
+          Servicios
+          <svg
+            class="w-4 h-4 transition-transform group-open:rotate-180"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </summary>
+        <ul class="pl-4 mt-2 space-y-2 text-base">
+          <li>
+            <a href="/desarolloweb" class="block hover:bg-[#2c4d66] rounded px-3 py-2"
+              >Desarrollo Web</a
+            >
+          </li>
+          <li>
+            <a href="/tiendaonline" class="block hover:bg-[#2c4d66] rounded px-3 py-2"
+              >Tiendas Online</a
+            >
+          </li>
+          <li>
+            <a href="/desarollomovil" class="block hover:bg-[#2c4d66] rounded px-3 py-2"
+              >Desarrollo Móvil</a
+            >
+          </li>
+          <li>
+            <a href="/mantenimientosoporte" class="block hover:bg-[#2c4d66] rounded px-3 py-2"
+              >Mantenimiento y Soporte</a
+            >
+          </li>
+        </ul>
+      </details>
+
+      <a href="/contacto" class="block hover:bg-[#2c4d66] rounded px-3 py-2">Contacto</a
+      >
+    </nav>
+  </div>
+</div>

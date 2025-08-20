@@ -1,0 +1,96 @@
+---
+import ProfileCard from "./Home/ProfileCard.astro";
+
+const anim = {
+  old: {
+    name: "bump",
+    duration: "0.5s",
+    easing: "ease-in",
+    direction: "reverse",
+  },
+  new: {
+    name: "bump",
+    duration: "0.5s",
+    easing: "ease-in-out",
+  },
+};
+
+const customTransition = {
+  forwards: anim,
+  backwards: anim,
+};
+---
+
+<div class="relative min-h-screen">
+  <!-- fondo -->
+  <div class="absolute inset-0 bg-white dark:bg-gray-950 overflow-hidden">
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950"
+    >
+    </div>
+    <div class="absolute inset-0 overflow-hidden">
+      <svg
+        class="absolute h-full w-full"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <linearGradient
+            id="ray-gradient-1"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
+            <stop
+              offset="0%"
+              class="text-purple-400/30 dark:text-purple-700/20"
+              stop-color="currentColor"></stop>
+            <stop
+              offset="100%"
+              class="text-transparent"
+              stop-color="currentColor"></stop>
+          </linearGradient>
+          <linearGradient
+            id="ray-gradient-2"
+            x1="100%"
+            y1="0%"
+            x2="0%"
+            y2="100%"
+          >
+            <stop
+              offset="0%"
+              class="text-blue-400/30 dark:text-blue-700/20"
+              stop-color="currentColor"></stop>
+            <stop
+              offset="100%"
+              class="text-transparent"
+              stop-color="currentColor"></stop>
+          </linearGradient>
+        </defs>
+        <polygon points="0,0 100,0 50,100" fill="url(#ray-gradient-1)"
+        ></polygon>
+        <polygon points="100,0 100,100 0,50" fill="url(#ray-gradient-2)"
+        ></polygon>
+      </svg>
+    </div>
+  </div>
+  <!-- Contenido -->
+  <section
+    class="md:min-h-screen bg-gradient-to-b text-white px-2 md:px-16 py-16 z-40"
+    transition:name="hero"
+    transition:name="hero"
+  >
+    <div class="max-w-6xl mx-auto text-white">
+      <!-- Título principal -->
+      <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+        Servicios<br/>Que ofrecemos
+      </h2>
+
+      <!-- Descripción -->
+
+      <!-- Tarjetas -->
+      <ProfileCard />
+    </div>
+  </section>
+</div>

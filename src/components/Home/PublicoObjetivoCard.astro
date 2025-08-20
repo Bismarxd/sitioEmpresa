@@ -1,0 +1,122 @@
+---
+const mercados = [
+  {
+    titulo: "Negocios locales (restaurantes, tiendas, servicios personales)",
+    descripcion: "Que buscan un precencia simple en linea",
+  },
+  {
+    titulo: "Emprendedores y freelancers",
+    descripcion:
+      "Buscan un sitio personal, portafolio o pagina para vender su producto/servicio",
+  },
+  {
+    titulo: "Pequeñas marcas de ropa/artesanías/productos",
+    descripcion:
+      "Catalogos, menejo de productos, conexion con redes y WhatsApp",
+  },
+  {
+    titulo:
+      "Profesionales independientes (abogados, psicólogos, contadores, médicos)",
+    descripcion:
+      "Paginas personales para captar clientes, mostrar servicios, etc",
+  },
+  {
+    titulo: "Organizaciones o eventos",
+    descripcion: "Buscan informe de actividades, eventos o campañas.",
+  },
+];
+---
+
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-5">
+  <!-- mercado 1 -->
+  {
+    mercados.map((mercado) => (
+      <div class="card">
+        <a class="card1">
+          <p>{mercado.titulo}</p>
+          <p class="small">{mercado.descripcion}</p>
+          <div class="go-corner">
+            <div class="go-arrow">→</div>
+          </div>
+        </a>
+      </div>
+    ))
+  }
+</section>
+
+<style>
+  .card p {
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 20px;
+    color: #666;
+  }
+
+  .card p.small {
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  .go-corner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    background-color: #03346d;
+    border-radius: 0 4px 0 32px;
+  }
+
+  .go-arrow {
+    margin-top: -4px;
+    margin-right: -4px;
+    color: white;
+    font-family: courier, sans;
+  }
+
+  .card1 {
+    display: block;
+    position: relative;
+    max-width: 262px;
+    background-color: #f2f8f9;
+    border-radius: 4px;
+    padding: 32px 24px;
+    margin: 12px;
+    text-decoration: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .card1:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: #03346d;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
+
+  .card1:hover:before {
+    transform: scale(21);
+  }
+
+  .card1:hover p {
+    transition: all 0.3s ease-out;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .card1:hover h3 {
+    transition: all 0.3s ease-out;
+    color: #fff;
+  }
+</style>

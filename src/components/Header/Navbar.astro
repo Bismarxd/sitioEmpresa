@@ -1,0 +1,84 @@
+---
+const currentPath = Astro.url.pathname;
+
+---
+
+<nav class="text-white hidden md:flex">
+  <div
+    class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between text-xs md:text-xl"
+  >
+    <ul class="flex space-x-6 items-center">
+      <li>
+        <a href="/" class={`hover:text-[#547792] transition ${currentPath === '/' ? 'text-[#547792] font-bold' : ''}`}>Inicio</a>
+      </li>
+      <li>
+        <a href="/acercaDe" class={`hover:text-[#547792] transition ${currentPath === '/acercaDe' ? 'text-[#547792] font-bold' : ''}`}>Acerca de</a>
+      </li>
+      <li>
+        <a href="/projectos" class={`hover:text-[#547792] transition ${currentPath === '/project' ? 'text-[#547792] font-bold' : ''}`}>Proyectos</a>
+      </li>
+
+      <li class="relative">
+        <details class="group">
+          <summary
+            class="cursor-pointer list-none hover:text-[#547792] transition flex items-center"
+          >
+            Servicios
+            <svg
+              class="ml-1 w-4 h-4 transform group-open:rotate-180 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <ul
+            class="mt-2 w-48 absolute bg-[#252525] text-white rounded shadow-lg z-10"
+          >
+            <li>
+              <a href="/desarolloweb" class="block px-4 py-2 hover:bg-gray-100"
+                >Desarrollo Web</a
+              >
+            </li>
+            <li>
+              <a href="/tiendaonline" class="block px-4 py-2 hover:bg-gray-100"
+                >Tienda Online</a
+              >
+            </li>
+            <li>
+              <a href="/desarollomovil" class="block px-4 py-2 hover:bg-gray-100"
+                >Desarrollo Móvil</a
+              >
+            </li>
+            <li>
+              <a href="/mantenimientosoporte" class="block px-4 py-2 hover:bg-gray-100"
+                >Mantenimiento y Soporte</a
+              >
+            </li>
+          </ul>
+        </details>
+      </li>
+
+      <li>
+        <a href="/contacto" class={`hover:text-[#547792] transition ${currentPath === '/contacto' ? 'text-[#547792] font-bold' : ''}`}>Contacto</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const currentPath = window.location.pathname;
+    document.querySelectorAll("nav a").forEach((link) => {
+      if (link.getAttribute("href") === currentPath) {
+        link.classList.add("text-[#547792]", "font-bold"); // aquí pones tu estilo
+      }
+    });
+  });
+</script>
