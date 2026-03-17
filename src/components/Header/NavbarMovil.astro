@@ -1,93 +1,383 @@
-<div class="md:hidden bg-[#474747da] text-white p-4 shadow-lg relative z-50">
-  <!-- Botón hamburguesa -->
-  <div class="flex justify-between items-center">
-    <button
-      onclick="document.getElementById('mobileMenu').classList.toggle('hidden')"
-      class="focus:outline-none"
-    >
-      <svg
-        class="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
-  </div>
+---
+const servicios = [
+  {
+    href: "/desarolloweb",
+    label: "Desarrollo Web",
+    icon: "💻",
+    color: "var(--color-cyan)",
+  },
+  {
+    href: "/tiendaonline",
+    label: "Tienda Online",
+    icon: "🛒",
+    color: "var(--color-purple)",
+  },
+  {
+    href: "/desarollomovil",
+    label: "Desarrollo Móvil",
+    icon: "📱",
+    color: "#22c55e",
+  },
+  {
+    href: "/mantenimientosoporte",
+    label: "Soporte Técnico",
+    icon: "🛠️",
+    color: "#eab308",
+  },
+];
+---
 
-  <!-- Menú desplegable en pantalla completa -->
-  <div
-    id="mobileMenu"
-    class="hidden fixed top-0 left-0 w-full h-full bg-[#2b2b2b] text-white z-40 p-6 overflow-y-auto"
-  >
-    <!-- Botón cerrar -->
-    <div class="flex justify-end">
+<!-- Overlay móvil -->
+<div
+  id="mobile-menu"
+  class="mobile-overlay"
+  aria-hidden="true"
+  role="dialog"
+  aria-modal="true"
+>
+  <!-- Backdrop -->
+  <div class="mobile-backdrop" id="mobile-backdrop"></div>
+
+  <!-- Panel -->
+  <nav class="mobile-panel" aria-label="Menú móvil">
+    <!-- Header interno -->
+    <div class="mobile-panel-header">
+      <a href="/" class="mobile-logo">
+        BISDEV<span>SOFT</span>
+      </a>
       <button
-        onclick="document.getElementById('mobileMenu').classList.add('hidden')"
-        class="text-white text-2xl font-bold"
+        class="mobile-close-btn"
+        id="mobile-close-btn"
+        aria-label="Cerrar menú"
       >
-        ×
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+        >
+          <path d="M18 6L6 18M6 6l12 12"></path>
+        </svg>
       </button>
     </div>
 
-    <!-- Enlaces -->
-    <nav class="mt-6 space-y-4 text-lg">
-      <a href="/" class="block hover:bg-[#2c4d66] rounded px-3 py-2">Inicio</a>
-      <a href="/acercaDe" class="block hover:bg-[#2c4d66] rounded px-3 py-2"
-        >Acerca de</a
-      >
-      <a href="/projectos" class="block hover:bg-[#2c4d66] rounded px-3 py-2"
-        >Proyectos</a
-      >
-      <details class="group">
-        <summary
-          class="cursor-pointer hover:bg-[#2c4d66] rounded px-3 py-2 flex justify-between items-center"
+    <!-- Links -->
+    <div class="mobile-links">
+      <a href="/" class="mobile-link">Inicio</a>
+      <a href="/acercaDe" class="mobile-link">Acerca de</a>
+      <a href="/projectos" class="mobile-link">Proyectos</a>
+
+      <!-- Servicios accordion -->
+      <div class="mobile-accordion">
+        <button
+          class="mobile-link mobile-accordion-btn"
+          id="mobile-servicios-btn"
+          aria-expanded="false"
         >
           Servicios
           <svg
-            class="w-4 h-4 transition-transform group-open:rotate-180"
+            class="accordion-arrow"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            viewBox="0 0 24 24"
+            stroke-width="2.5"
+            stroke-linecap="round"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M19 9l-7 7-7-7"></path>
+            <path d="M6 9l6 6 6-6"></path>
           </svg>
-        </summary>
-        <ul class="pl-4 mt-2 space-y-2 text-base">
-          <li>
-            <a href="/desarolloweb" class="block hover:bg-[#2c4d66] rounded px-3 py-2"
-              >Desarrollo Web</a
-            >
-          </li>
-          <li>
-            <a href="/tiendaonline" class="block hover:bg-[#2c4d66] rounded px-3 py-2"
-              >Tiendas Online</a
-            >
-          </li>
-          <li>
-            <a href="/desarollomovil" class="block hover:bg-[#2c4d66] rounded px-3 py-2"
-              >Desarrollo Móvil</a
-            >
-          </li>
-          <li>
-            <a href="/mantenimientosoporte" class="block hover:bg-[#2c4d66] rounded px-3 py-2"
-              >Mantenimiento y Soporte</a
-            >
-          </li>
-        </ul>
-      </details>
+        </button>
+        <div class="mobile-accordion-content" id="mobile-servicios-content">
+          {
+            servicios.map((s) => (
+              <a
+                href={s.href}
+                class="mobile-sub-card"
+                style={`--mobile-hv: ${s.color}`}
+              >
+                <span class="mobile-sub-icon">{s.icon}</span>
+                <span class="mobile-sub-label">{s.label}</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
 
-      <a href="/contacto" class="block hover:bg-[#2c4d66] rounded px-3 py-2">Contacto</a
+      <a href="/contacto" class="mobile-link">Contacto</a>
+    </div>
+
+    <!-- CTA Footer -->
+    <div class="mobile-cta">
+      <a
+        href="/contacto"
+        class="btn-primary"
+        style="justify-content: center; width: 100%;"
       >
-    </nav>
-  </div>
+        Iniciar proyecto →
+      </a>
+    </div>
+  </nav>
 </div>
+
+<style>
+  /* ── Overlay ── */
+  .mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+  }
+
+  .mobile-overlay.open {
+    display: flex;
+  }
+
+  .mobile-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    animation: fade-in 0.2s ease;
+  }
+
+  /* ── Mobile panel ── */
+  .mobile-panel {
+    position: relative;
+    width: min(340px, 85vw);
+    height: 100%;
+    background: rgba(5, 11, 24, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(0, 212, 255, 0.15);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    animation: slide-in 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow-y: auto;
+  }
+
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* ── Panel header ── */
+  .mobile-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+  }
+
+  .mobile-logo {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+
+  .mobile-logo span {
+    color: var(--color-cyan);
+  }
+
+  .mobile-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--color-text);
+    cursor: pointer;
+    transition:
+      background 0.2s,
+      border-color 0.2s;
+  }
+
+  .mobile-close-btn:hover {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: rgba(0, 212, 255, 0.3);
+    color: var(--color-cyan);
+  }
+
+  /* ── Links ── */
+  .mobile-links {
+    flex: 1;
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .mobile-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #c8d6e5;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-family: var(--font-sans);
+  }
+
+  .mobile-link:hover {
+    color: var(--color-cyan);
+    background: rgba(0, 212, 255, 0.06);
+  }
+
+  /* ── Accordion ── */
+  .mobile-accordion-btn .accordion-arrow {
+    transition: transform 0.25s ease;
+  }
+
+  .mobile-accordion-btn.open .accordion-arrow {
+    transform: rotate(180deg);
+  }
+
+  .mobile-accordion-content {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 0.5rem;
+    border-left: 2px solid rgba(0, 212, 255, 0.2);
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-accordion-content.open {
+    display: flex;
+  }
+
+  .mobile-sub-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: all 0.2s;
+  }
+
+  .mobile-sub-card:hover {
+    background: color-mix(in srgb, var(--mobile-hv) 10%, transparent);
+    border-color: color-mix(in srgb, var(--mobile-hv) 30%, transparent);
+  }
+
+  .mobile-sub-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+    padding: 0.4rem;
+    background: color-mix(in srgb, var(--mobile-hv) 15%, transparent);
+    border-radius: 8px;
+  }
+
+  .mobile-sub-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    transition: color 0.2s;
+  }
+
+  .mobile-sub-card:hover .mobile-sub-label {
+    color: var(--mobile-hv);
+  }
+
+  /* ── CTA ── */
+  .mobile-cta {
+    padding: 1.5rem 1.5rem;
+    border-top: 1px solid rgba(0, 212, 255, 0.1);
+  }
+</style>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const overlay = document.getElementById("mobile-menu");
+    const closeBtn = document.getElementById("mobile-close-btn");
+    const backdrop = document.getElementById("mobile-backdrop");
+    const serviciosBtn = document.getElementById("mobile-servicios-btn");
+    const serviciosContent = document.getElementById(
+      "mobile-servicios-content",
+    );
+    const menuBtn = document.getElementById("mobile-menu-btn");
+
+    function openMenu() {
+      overlay?.classList.add("open");
+      overlay?.setAttribute("aria-hidden", "false");
+      menuBtn?.classList.add("open");
+      menuBtn?.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeMenu() {
+      overlay?.classList.remove("open");
+      overlay?.setAttribute("aria-hidden", "true");
+      menuBtn?.classList.remove("open");
+      menuBtn?.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }
+
+    // Limpiar eventos anteriores si existieran
+    menuBtn?.removeEventListener("click", openMenu);
+    closeBtn?.removeEventListener("click", closeMenu);
+    backdrop?.removeEventListener("click", closeMenu);
+
+    // Asignar los eventos
+    menuBtn?.addEventListener("click", openMenu);
+    closeBtn?.addEventListener("click", closeMenu);
+    backdrop?.addEventListener("click", closeMenu);
+
+    // Servicios accordion
+    if (serviciosBtn && serviciosContent) {
+      // Clonar boton para remover listeners viejos
+      const newBtn = serviciosBtn.cloneNode(true) as HTMLElement;
+      serviciosBtn.parentNode?.replaceChild(newBtn, serviciosBtn);
+
+      newBtn.addEventListener("click", () => {
+        const isOpen = newBtn.classList.toggle("open");
+        serviciosContent?.classList.toggle("open", isOpen);
+        newBtn.setAttribute("aria-expanded", String(isOpen));
+      });
+    }
+
+    // Cerrar con Escape
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeMenu();
+    };
+    document.removeEventListener("keydown", handleEscape);
+    document.addEventListener("keydown", handleEscape);
+  });
+</script>

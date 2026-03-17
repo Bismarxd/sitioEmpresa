@@ -1,171 +1,306 @@
 ---
-
+import PageHero from "../../components/PageHero.astro";
 ---
 
-<div class="relative min-h-screen">
-  <!-- fondo -->
-  <div class="absolute inset-0 bg-white dark:bg-gray-950 overflow-hidden">
-    {/* Tech-themed radial gradients */}
-    <div class="absolute inset-0">
-      <div
-        class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_30%)] dark:bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.15),transparent_30%)]"
-      >
-      </div>
-      <div
-        class="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(124,58,237,0.1),transparent_30%)] dark:bg-[radial-gradient(circle_at_70%_80%,rgba(124,58,237,0.15),transparent_30%)]"
-      >
-      </div>
-    </div>
+<PageHero
+  label="Empresa"
+  title='Sobre <span class="gt">Nosotros</span>'
+  description="Somos una empresa dedicada a brindar soluciones innovadoras y eficientes en el ámbito tecnológico. Profesionales apasionados por la calidad, el diseño y la funcionalidad."
+  accentColor="#00d4ff"
+/>
 
-    <div class="absolute inset-0 overflow-hidden opacity-10 dark:opacity-20">
-      <svg width="100%" height="100%" class="absolute">
-        <pattern
-          id="circuit-pattern"
-          x="0"
-          y="0"
-          width="100"
-          height="100"
-          patternUnits="userSpaceOnUse"
-        >
-       
-          <path
-            d="M0 50h40c5.5 0 10 4.5 10 10s4.5 10 10 10h40M50 0v40c0 5.5 4.5 10 10s10 4.5 10 10v40"
-            stroke="currentColor"
-            stroke-width="1"
-            fill="none"
-            class="text-gray-400 dark:text-gray-600"></path>
-        </pattern>
-        <rect width="100%" height="100%" fill="url(#circuit-pattern)"></rect>
-      </svg>
-    </div>
+<section class="about-section">
+  <div class="about-inner">
+    <div class="about-grid">
+      <!-- Visión/Misión -->
+      <div class="about-content">
+        <h2 class="about-title">Nuestra Misión</h2>
+        <p class="about-desc">
+          Transformar ideas complejas en soluciones digitales elegantes y
+          eficientes que impulsen el crecimiento de los negocios. Creemos en la
+          tecnología como herramienta fundamental para la evolución empresarial.
+        </p>
 
-    {/* Binary numbers */}
-    <div class="absolute inset-0 opacity-5 dark:opacity-10">
-      <div
-        class="absolute left-[10%] top-[15%] text-xs font-mono text-gray-900 dark:text-gray-200"
-      >
-        0
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-num">50+</span>
+            <span class="stat-label">Proyectos Entregados</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">3+</span>
+            <span class="stat-label">Años de Experiencia</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Satisfacción</span>
+          </div>
+        </div>
       </div>
-      <div
-        class="absolute left-[20%] top-[25%] text-xs font-mono text-gray-900 dark:text-gray-200"
-      >
-        1
-      </div>
-      <div
-        class="absolute left-[30%] top-[45%] text-xs font-mono text-gray-900 dark:text-gray-200"
-      >
-        0
-      </div>
-      <div
-        class="absolute left-[40%] top-[65%] text-xs font-mono text-gray-900 dark:text-gray-200"
-      >
-        1
-      </div>
-      <div
-        class="absolute left-[50%] top-[85%] text-xs font-mono text-gray-900 dark:text-gray-200"
-      >
-        0
-      </div>
-      <div
-        class="absolute left-[60%] top-[35%] text-xs font-mono text-gray-900 dark:text-gray-200"
-      >
-        1
-      </div>
-      <div
-        class="absolute left-[70%] top-[55%] text-xs font-mono text-gray-900 dark:text-gray-200"
-      >
-        0
-      </div>
-      <div
-        class="absolute left-[80%] top-[75%] text-xs font-mono text-gray-900 dark:text-gray-200"
-      >
-        1
-      </div>
-      <div
-        class="absolute left-[90%] top-[5%] text-xs font-mono text-gray-900 dark:text-gray-200"
-      >
-        0
+
+      <!-- Decorativo -->
+      <div class="about-image">
+        <div class="code-window">
+          <div class="code-header">
+            <div class="code-dot" style="background: #ff5f56;"></div>
+            <div class="code-dot" style="background: #ffbd2e;"></div>
+            <div class="code-dot" style="background: #27c93f;"></div>
+          </div>
+          <div class="code-body">
+            <img src="/Inicio/codigo.jpg" alt="Código" class="code-img" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <!-- Contenido -->
-  <div class="pt-36 p-10 text-white z-30 bg-[#003341d0] w-auto">
-    <div class="flex gap-8 flex-col md:flex-row">
-      <div class="card flex-1/2">
-        <div class="tools">
-          <div class="circle">
-            <span class="red box"></span>
-          </div>
-          <div class="circle">
-            <span class="yellow box"></span>
-          </div>
-          <div class="circle">
-            <span class="green box"></span>
-          </div>
-        </div>
-        <div class="card__content m-4 p-5">
-          <h2 class="text-4xl font-semibold mb-2 uppercase font-stretch-50%">
-            Sobre Nosotros
-          </h2>
-          <p class="mb-2">
-            Somos una empresa dedicada a brindar soluciones innovadoras y
-            eficientes en el ámbito tecnológico. Nuestro equipo está compuesto
-            por profesionales apasionados por la calidad, el diseño y la
-            funcionalidad.
-          </p>
-        </div>
+</section>
+
+<!-- Equipo -->
+<section class="team-section">
+  <div class="team-inner">
+    <div class="team-header text-center">
+      <span class="section-label">Liderazgo</span>
+      <h2
+        class="team-title"
+        style="font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 2rem;"
+      >
+        Equipo de Trabajo
+      </h2>
+    </div>
+
+    <div class="team-card">
+      <div class="team-avatar">
+        <div class="avatar-placeholder">BM</div>
       </div>
-      <div class="flex-1/2">
-        <img
-          src="/Inicio/codigo.jpg"
-          alt="Interfaz de Linear"
-          class="w-full sm:w-[90%] md:w-[70%] max-w-5xl rounded-md sm:rounded-lg md:rounded-xl shadow-2xl
-           transform rotate-0 sm:-rotate-3 md:-rotate-[8deg] hover:rotate-0 transition-transform duration-700 ease-out z-10"
-        />
+      <div class="team-info">
+        <h3 class="team-name">Lic. Bismarck Mayta Tintaya</h3>
+        <span class="team-role">Fundador & Full-Stack Developer</span>
+        <p class="team-bio">
+          Desarrollador Web experto en tecnologías modernas como React, Next.js,
+          Node y Astro. Apasionado por crear arquitecturas escalables y
+          experiencias de usuario inmersivas.
+        </p>
+
+        <div class="team-social">
+          <a href="#" aria-label="LinkedIn" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              ></path>
+            </svg>
+          </a>
+          <a href="#" aria-label="GitHub" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+              ></path>
+            </svg>
+          </a>
+        </div>
+
+        <div class="mt-6">
+          <a
+            href="https://portafolio-v2-gray.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-outline"
+          >
+            Ver Portafolio Personal
+          </a>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <style>
-  /* From Uiverse.io by EmmaxPlay */
-  .card {
-    width: 190px;
-    height: 254px;
+  .about-section {
+    background: var(--color-bg-2);
+    padding: 5rem 1.5rem;
+  }
+  .about-inner {
+    max-width: 1280px;
     margin: 0 auto;
-    background-color: #011522;
-    border-radius: 8px;
-    z-index: 1;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .about-grid {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
-  .tools {
+  .about-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1.5rem;
+  }
+  .about-desc {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 640px) {
+    .about-stats {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .stat-card {
     display: flex;
-    align-items: center;
-    padding: 9px;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .stat-num {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-cyan);
+    font-family: var(--font-mono);
+  }
+  .stat-label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
-  .circle {
-    padding: 0 4px;
+  .code-window {
+    background: #011522;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+    transition: transform 0.5s ease;
   }
-
-  .box {
-    display: inline-block;
-    align-items: center;
-    width: 10px;
-    height: 10px;
-    padding: 1px;
+  .code-window:hover {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+  }
+  .code-header {
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .code-dot {
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
   }
-
-  .red {
-    background-color: #ff605c;
+  .code-body {
+    padding: 0;
+  }
+  .code-img {
+    width: 100%;
+    display: block;
+    mix-blend-mode: luminosity;
+    opacity: 0.8;
   }
 
-  .yellow {
-    background-color: #ffbd44;
+  .team-section {
+    background: var(--color-bg);
+    padding: 5rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+  }
+  .team-inner {
+    max-width: 800px;
+    margin: 0 auto;
   }
 
-  .green {
-    background-color: #00ca4e;
+  .team-card {
+    background: rgba(10, 22, 40, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  @media (min-width: 640px) {
+    .team-card {
+      flex-direction: row;
+      text-align: left;
+      gap: 3rem;
+      padding: 3rem;
+    }
+  }
+
+  .team-avatar {
+    flex-shrink: 0;
+  }
+  .avatar-placeholder {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--color-cyan), var(--color-purple));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .team-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .team-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  .team-role {
+    font-size: 1rem;
+    color: var(--color-cyan);
+    font-weight: 600;
+  }
+  .team-bio {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-top: 0.5rem;
+  }
+  .team-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  @media (max-width: 639px) {
+    .team-social {
+      justify-content: center;
+    }
+  }
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    transition: all 0.2s;
+  }
+  .social-icon:hover {
+    background: var(--color-cyan);
+    color: #000;
+    transform: translateY(-2px);
   }
 </style>

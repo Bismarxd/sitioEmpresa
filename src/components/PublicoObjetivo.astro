@@ -2,46 +2,82 @@
 import PublicoObjetivoCard from "./Home/PublicoObjetivoCard.astro";
 ---
 
-<div class="relative min-h-screen">
-  <!-- Fondo -->
-  <div class="absolute inset-0 bg-white dark:bg-gray-950 overflow-hidden">
-    <svg
-      class="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950"
-      viewBox="0 0 100 100"
-      preserveAspectRatio="none"
-    >
-      <path
-        d="M0,20 Q25,40 50,20 Q75,0 100,20 V100 H0 Z"
-        class="fill-blue-100 dark:fill-blue-900/30"></path>
-      <path
-        d="M0,30 Q25,50 50,30 Q75,10 100,30 V100 H0 Z"
-        class="fill-blue-200 dark:fill-blue-800/30"></path>
-      <path
-        d="M0,40 Q25,60 50,40 Q75,20 100,40 V100 H0 Z"
-        class="fill-blue-300 dark:fill-blue-700/30"></path>
-      <path
-        d="M0,50 Q25,70 50,50 Q75,30 100,50 V100 H0 Z"
-        class="fill-blue-400 dark:fill-blue-600/30"></path>
-      <path
-        d="M0,60 Q25,80 50,60 Q75,40 100,60 V100 H0 Z"
-        class="fill-blue-500 dark:fill-blue-500/30"></path>
-      <path
-        d="M0,70 Q25,90 50,70 Q75,50 100,70 V100 H0 Z"
-        class="fill-blue-600 dark:fill-blue-400/30"></path>
-      <path
-        d="M0,80 Q25,100 50,80 Q75,60 100,80 V100 H0 Z"
-        class="fill-blue-700 dark:fill-blue-300/30"></path>
-    </svg>
+<section class="audience-section">
+  <div class="audience-bg">
+    <div class="audience-orb"></div>
   </div>
-  <!-- Contenido -->
-  <div
-    class="md:min-h-screen bg-gradient-to-b  px-2 md:px-16 py-16 z-40"
-  >
-   <div class="p-6 rounded relative z-50 text-center">
-  <h2 class="text-white font-bold text-3xl">Mercado Objetivo</h2>
-</div>
 
+  <div class="audience-inner">
+    <!-- Header -->
+    <div class="audience-header">
+      <span class="section-label">¿Para quién?</span>
+      <h2 class="audience-title">
+        Nuestro<br />
+        <span class="gradient-text">mercado objetivo</span>
+      </h2>
+      <p class="audience-description">
+        Trabajamos con negocios y emprendedores de todos los tamaños que quieren
+        crecer en el mundo digital.
+      </p>
+    </div>
 
+    <!-- Cards -->
     <PublicoObjetivoCard />
   </div>
-</div>
+</section>
+
+<style>
+  .audience-section {
+    position: relative;
+    padding: 6rem 1.5rem;
+    overflow: hidden;
+    background: var(--color-bg);
+  }
+
+  .audience-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .audience-orb {
+    position: absolute;
+    width: 45%;
+    aspect-ratio: 1;
+    bottom: -15%;
+    right: -10%;
+    background: radial-gradient(
+      circle,
+      rgba(0, 212, 255, 0.1),
+      transparent 70%
+    );
+    filter: blur(60px);
+  }
+
+  .audience-inner {
+    position: relative;
+    z-index: 10;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .audience-header {
+    max-width: 520px;
+    margin-bottom: 3rem;
+  }
+
+  .audience-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1rem;
+    line-height: 1.15;
+  }
+
+  .audience-description {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+</style>

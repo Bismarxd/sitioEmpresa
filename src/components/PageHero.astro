@@ -1,0 +1,169 @@
+---
+/**
+ * PageHero - Shared page banner for inner pages
+ * Props:
+ *   label: small eyebrow text above the title
+ *   title: main heading (supports HTML for <span> gradient)
+ *   description: subtitle paragraph
+ *   accentColor (optional): CSS color string used for the top decorative dot (default cyan)
+ */
+interface Props {
+    label?: string;
+    title: string;
+    description?: string;
+    accentColor?: string;
+}
+
+const { label, title, description, accentColor = "#00d4ff" } = Astro.props;
+---
+
+<div class="page-hero" style={`--accent: ${accentColor}`}>
+    <div class="page-hero-bg">
+        <div class="page-hero-orb-left"></div>
+        <div class="page-hero-orb-right"></div>
+        <div class="page-hero-grid"></div>
+    </div>
+    <div class="page-hero-inner">
+        {
+            label && (
+                <span class="page-hero-label">
+                    <span class="page-hero-dot" />
+                    {label}
+                </span>
+            )
+        }
+        <h1 class="page-hero-title" set:html={title} />
+        {description && <p class="page-hero-desc">{description}</p>}
+    </div>
+</div>
+
+<style>
+    .page-hero {
+        position: relative;
+        padding-top: 64px; /* header height */
+        overflow: hidden;
+        background: var(--color-bg);
+    }
+
+    .page-hero-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+
+    .page-hero-orb-left {
+        position: absolute;
+        width: 40%;
+        aspect-ratio: 1;
+        top: -20%;
+        left: -10%;
+        background: radial-gradient(
+            circle,
+            rgba(0, 212, 255, 0.12),
+            transparent 70%
+        );
+        filter: blur(50px);
+    }
+
+    .page-hero-orb-right {
+        position: absolute;
+        width: 35%;
+        aspect-ratio: 1;
+        bottom: -15%;
+        right: -5%;
+        background: radial-gradient(
+            circle,
+            rgba(168, 85, 247, 0.12),
+            transparent 70%
+        );
+        filter: blur(50px);
+    }
+
+    .page-hero-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
+        background-size: 48px 48px;
+        mask-image: radial-gradient(
+            ellipse 80% 100% at 50% 100%,
+            black 40%,
+            transparent 100%
+        );
+    }
+
+    .page-hero-inner {
+        position: relative;
+        z-index: 10;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 3rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .page-hero-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent, var(--color-cyan));
+    }
+
+    .page-hero-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent, var(--color-cyan));
+        box-shadow: 0 0 8px var(--accent, var(--color-cyan));
+        animation: glow-pulse 2s ease-in-out infinite;
+    }
+
+    .page-hero-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 900;
+        color: #fff;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        max-width: 700px;
+    }
+
+    /* Allow gradient spans inside the title */
+    .page-hero-title :global(.gt) {
+        background: linear-gradient(
+            135deg,
+            var(--color-cyan),
+            var(--color-purple)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .page-hero-desc {
+        font-size: 1.05rem;
+        color: var(--color-text-muted);
+        line-height: 1.7;
+        max-width: 560px;
+    }
+
+    /* Divider line at bottom */
+    .page-hero::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            var(--color-border),
+            transparent
+        );
+        margin: 0 auto;
+        width: 80%;
+    }
+</style>

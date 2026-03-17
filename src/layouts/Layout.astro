@@ -1,8 +1,8 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import "../styles/global.css";
-
+import Header from "../components/Header.astro";
+import NavbarMovil from "../components/Header/NavbarMovil.astro";
+import Footer from "../components/Footer.astro";
 import { ClientRouter } from "astro:transitions";
 ---
 
@@ -11,38 +11,36 @@ import { ClientRouter } from "astro:transitions";
   <head>
     <ClientRouter />
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="BISDEV SOFT – Desarrollo de software web y móvil a medida. Potenciamos tu empresa o negocio con soluciones digitales innovadoras."
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
     <link
-      href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Hand+Pre:wght@400..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
-    /><meta name="generator" content={Astro.generator} /><title>
-      Astro Basics
-    </title></head
-  >
-</html>
-<body>
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>BISDEV SOFT – Desarrollo de Software</title>
+  </head>
+  <body>
     <Header />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer />
-
-</body>
+    <NavbarMovil />
+  </body>
+</html>
 
 <style>
   html,
   body {
     margin: 0;
     width: 100%;
-    height: 100%;
-  }
-  @media (max-width: 768px) {
-    body {
-      width: 120%;
-    }
+    min-height: 100%;
   }
 </style>

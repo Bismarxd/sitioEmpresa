@@ -1,187 +1,337 @@
-<div class="relative min-h-screen">
-  <!-- Fondo -->
-  <div class="absolute inset-0 bg-white dark:bg-gray-950">
-    <div class="absolute inset-0 opacity-[0.2] dark:opacity-[0.15]">
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern
-            id="hexagons"
-            width="50"
-            height="43.4"
-            patternUnits="userSpaceOnUse"
-            patternTransform="scale(2)"
-          >
-            <path
-              d="M25 0 L50 14.4 L50 38.4 L25 51.8 L0 38.4 L0 14.4 Z"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1"
-              class="text-blue-500/40 dark:text-blue-400/30"></path>
-            <path
-              d="M25 0 L50 14.4 L50 38.4 L25 51.8 L0 38.4 L0 14.4 Z"
-              transform="translate(50, 25.9)"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1"
-              class="text-purple-500/40 dark:text-purple-400/30"></path>
-          </pattern>
+---
+import PageHero from "../../components/PageHero.astro";
+---
 
-          <linearGradient id="hex-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.1"></stop>
-            <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.1"></stop>
-            <stop offset="100%" stop-color="#ec4899" stop-opacity="0.1"></stop>
-          </linearGradient>
-        </defs>
+<PageHero
+  label="Servicio"
+  title='Desarrollo Web <span class="gt">a Medida</span>'
+  description="Sitios web modernos, rápidos y adaptables. Desde páginas corporativas hasta tiendas en línea, diseño y funcionalidad en un solo paquete."
+/>
 
-        <rect width="100%" height="100%" fill="url(#hexagons)"></rect>
-        <rect width="100%" height="100%" fill="url(#hex-gradient)"></rect>
-      </svg>
+<!-- Hero visual + intro -->
+<section class="service-intro">
+  <div class="service-intro-inner">
+    <div class="service-intro-text">
+      <p>
+        Dedicados a crear sitios web modernos, rápidos y adaptables a cualquier
+        dispositivo. Ya sea una página corporativa o una tienda en línea,
+        desarrollamos soluciones a medida que combinan diseño atractivo,
+        funcionalidad y optimización para buscadores.
+      </p>
+      <a
+        href="/contacto"
+        class="btn-primary"
+        style="width: fit-content; margin-top: 1rem;"
+      >
+        Contactarnos
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </a>
     </div>
-
-    {/* Gradient overlays */}
-    <div
-      class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.15),transparent_60%)] dark:bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.1),transparent_60%)]"
-    >
-    </div>
-    <div
-      class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(236,72,153,0.15),transparent_60%)] dark:bg-[radial-gradient(ellipse_at_bottom_right,rgba(236,72,153,0.1),transparent_60%)]"
-    >
+    <div class="service-intro-img">
+      <img src="/servicios/desarolloweb1.png" alt="Desarrollo Web" />
     </div>
   </div>
-  <!-- Contenido -->
-  <div class=" relative pt-36 p-10 text-white z-30">
-    <div class="flex gap-8">
-      <div class="p-2 flex flex-col md:flex-row gap-10 md:gap-2">
-        <div class="flex-1/2 md:p-5 md:m-3">
-          <h2 class="text-4xl">Servicio de Desarollo Web</h2>
-          <p class="m-3">
-            Dedicados a crear sitios web modernos, rápidos y adaptables a
-            cualquier dispositivo. Ya sea una página corporativa o una tienda en
-            línea, desarrollo soluciones a medida que combinan diseño atractivo,
-            funcionalidad y optimización para buscadores. .
-          </p>
-          <div class="text-center mt-4 p-4">
-            <button class="hover:cursor-pointer"> Contactanos</button>
-          </div>
-        </div>
-        <div class="flex-1/2">
-          <div
-            class="p-2 rounded-3xl bg-white shadow-[15px_15px_0px_rgba(0,0,0,0.4)] inline-block"
-          >
-            <img
-              class="rounded-2xl shadow-2xl"
-              src="./servicios/desarolloweb1.png"
-              alt="desarolloweb1"
-            />
-          </div>
-        </div>
+</section>
+
+<!-- Tech stack -->
+<section class="tech-section">
+  <div class="tech-inner">
+    <div class="tech-header">
+      <span class="section-label">Stack tecnológico</span>
+      <h2 class="tech-title">Tecnologías que usamos</h2>
+    </div>
+
+    <div class="tech-group">
+      <h3 class="tech-group-title">Frontend</h3>
+      <div class="tech-grid">
+        {
+          [
+            {
+              name: "React",
+              src: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+            },
+            {
+              name: "Astro",
+              src: "https://www.svgrepo.com/show/373446/astro.svg",
+            },
+            {
+              name: "Vue",
+              src: "https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg",
+            },
+            {
+              name: "JavaScript",
+              src: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+            },
+            {
+              name: "Tailwind",
+              src: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
+            },
+          ].map((t) => (
+            <div class="tech-chip">
+              <img src={t.src} alt={t.name} class="tech-chip-icon" />
+              <span>{t.name}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="tech-group">
+      <h3 class="tech-group-title">Backend</h3>
+      <div class="tech-grid">
+        {
+          [
+            {
+              name: "Node.js",
+              src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/640px-Node.js_logo.svg.png",
+            },
+            {
+              name: "MySQL",
+              src: "https://upload.wikimedia.org/wikipedia/en/d/dd/MySQL_logo.svg",
+            },
+            {
+              name: "PHP",
+              src: "https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg",
+            },
+            {
+              name: "Express",
+              src: "https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png",
+            },
+            {
+              name: "MongoDB",
+              src: "https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg",
+            },
+          ].map((t) => (
+            <div class="tech-chip">
+              <img src={t.src} alt={t.name} class="tech-chip-icon" />
+              <span>{t.name}</span>
+            </div>
+          ))
+        }
       </div>
     </div>
   </div>
-</div>
+</section>
+
+<!-- What's included -->
+<section class="includes-section">
+  <div class="includes-inner">
+    <span class="section-label">¿Qué incluye?</span>
+    <h2 class="includes-title">Todo lo que necesitas</h2>
+    <div class="includes-grid">
+      {
+        [
+          {
+            icon: "🎨",
+            title: "Diseño personalizado",
+            desc: "Interfaz moderna, responsiva y alineada con tu marca.",
+          },
+          {
+            icon: "⚡",
+            title: "Rendimiento optimizado",
+            desc: "Carga rápida, SEO técnico y buenas prácticas.",
+          },
+          {
+            icon: "📱",
+            title: "100% Responsivo",
+            desc: "Perfecto en móvil, tablet y escritorio.",
+          },
+          {
+            icon: "🔒",
+            title: "Seguridad",
+            desc: "Medidas de seguridad y HTTPS configurado.",
+          },
+          {
+            icon: "📊",
+            title: "Panel de administración",
+            desc: "Gestiona tu contenido sin saber programar.",
+          },
+          {
+            icon: "🤝",
+            title: "Soporte incluido",
+            desc: "Acompañamiento post-entrega para cualquier ajuste.",
+          },
+        ].map((item) => (
+          <div class="includes-card">
+            <span class="includes-icon">{item.icon}</span>
+            <h3 class="includes-card-title">{item.title}</h3>
+            <p class="includes-card-desc">{item.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
 
 <style>
-  /* Boton de contacto */
-  button,
-  button::after {
-    padding: 16px 20px;
-    font-size: 18px;
-    background: linear-gradient(45deg, transparent 5%, #016387 5%);
-    border: 0;
+  /* ── Intro ── */
+  .service-intro {
+    background: var(--color-bg-2);
+    padding: 4rem 1.5rem;
+  }
+  .service-intro-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .service-intro-inner {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .service-intro-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
+  .service-intro-img img {
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  }
+
+  /* ── Tech ── */
+  .tech-section {
+    background: var(--color-bg);
+    padding: 4rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+  }
+  .tech-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .tech-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .tech-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
     color: #fff;
-    letter-spacing: 3px;
-    line-height: 1;
-    box-shadow: 6px 0px 0px #00e6f6;
-    outline: transparent;
-    position: relative;
+  }
+  .tech-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .tech-group-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+  }
+  .tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .tech-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(10, 22, 40, 0.7);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-size: 0.875rem;
+    color: var(--color-text);
+    transition:
+      border-color 0.2s,
+      background 0.2s;
+  }
+  .tech-chip:hover {
+    border-color: rgba(0, 212, 255, 0.35);
+    background: rgba(0, 212, 255, 0.05);
+  }
+  .tech-chip-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
   }
 
-  button::after {
-    --slice-0: inset(50% 50% 50% 50%);
-    --slice-1: inset(80% -6px 0 0);
-    --slice-2: inset(50% -6px 30% 0);
-    --slice-3: inset(10% -6px 85% 0);
-    --slice-4: inset(40% -6px 43% 0);
-    --slice-5: inset(80% -6px 5% 0);
-    content: "Contactanos";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      45deg,
-      transparent 3%,
-      #00e6f6 3%,
-      #00e6f6 5%,
-      #0287b8 5%
-    );
-    text-shadow:
-      -3px -3px 0px #f5f5f5,
-      3px 3px 0px #00e6f6;
-    clip-path: var(--slice-0);
+  /* ── Includes ── */
+  .includes-section {
+    background: var(--color-bg-2);
+    padding: 4rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
   }
-
-  button:hover::after {
-    animation: 1s glitch;
-    animation-timing-function: steps(2, end);
+  .includes-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
-
-  @keyframes glitch {
-    0% {
-      clip-path: var(--slice-1);
-      transform: translate(-20px, -10px);
+  .includes-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    color: #fff;
+  }
+  .includes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 640px) {
+    .includes-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
-
-    10% {
-      clip-path: var(--slice-3);
-      transform: translate(10px, 10px);
+  }
+  @media (min-width: 1024px) {
+    .includes-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
-
-    20% {
-      clip-path: var(--slice-1);
-      transform: translate(-10px, 10px);
-    }
-
-    30% {
-      clip-path: var(--slice-3);
-      transform: translate(0px, 5px);
-    }
-
-    40% {
-      clip-path: var(--slice-2);
-      transform: translate(-5px, 0px);
-    }
-
-    50% {
-      clip-path: var(--slice-3);
-      transform: translate(5px, 0px);
-    }
-
-    60% {
-      clip-path: var(--slice-4);
-      transform: translate(5px, 10px);
-    }
-
-    70% {
-      clip-path: var(--slice-2);
-      transform: translate(-10px, 10px);
-    }
-
-    80% {
-      clip-path: var(--slice-5);
-      transform: translate(20px, -10px);
-    }
-
-    90% {
-      clip-path: var(--slice-1);
-      transform: translate(-10px, 0px);
-    }
-
-    100% {
-      clip-path: var(--slice-1);
-      transform: translate(0);
-    }
+  }
+  .includes-card {
+    padding: 1.5rem;
+    background: rgba(10, 22, 40, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    transition:
+      border-color 0.2s,
+      transform 0.2s;
+  }
+  .includes-card:hover {
+    border-color: rgba(0, 212, 255, 0.2);
+    transform: translateY(-3px);
+  }
+  .includes-icon {
+    font-size: 1.75rem;
+  }
+  .includes-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .includes-card-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
   }
 </style>

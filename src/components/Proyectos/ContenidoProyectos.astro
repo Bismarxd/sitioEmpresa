@@ -1,98 +1,220 @@
 ---
+import PageHero from "../../components/PageHero.astro";
+
 const proyectos = [
   {
-    titulo: "E-commerce",
+    titulo: "E-commerce Completo",
     descripcion:
-      "Tienda online completa con panel de clientes y de administradores. Permite gestionar productos, pedidos y usuarios con una experiencia fluida.",
+      "Tienda online con panel de clientes y administradores. Gestión de productos, pedidos y usuarios con una experiencia fluida.",
     imagen: "/projectos/ProjectEcommerce.png",
-    boton: "Ver más",
+    boton: "Visitar Proyecto",
+    tags: ["React", "Node.js", "Stripe"],
+    color: "#3b82f6",
   },
   {
-    titulo: "Seguimiento Clinico de Mascotas",
+    titulo: "Seguimiento Clínico",
     descripcion:
-      "Proyecto web para gestionar el historial clínico de mascotas, facilitando el seguimiento de consultas, tratamientos y vacunas. Desarrollado como parte de una solución moderna para clínicas veterinarias.",
-    imagen: "./projectos/ProjectMonitoreoVetrinaria.png",
-    boton: "Ver más",
+      "Sistema web para clínicas veterinarias que gestiona el historial clínico de mascotas, seguimiento de consultas, tratamientos y vacunas.",
+    imagen: "/projectos/ProjectMonitoreoVetrinaria.png",
+    boton: "Visitar Proyecto",
+    tags: ["Astro", "Tailwind", "Firebase"],
+    color: "#10b981",
   },
   {
-    titulo: "Seguimiento de Titulados",
+    titulo: "Gestión de Titulados",
     descripcion:
-      "Software realizado para la carrera de Psicología de la UMSA. Facilita el registro y seguimiento de las actividades profesionales de los titulados.",
+      "Software institucional de la UMSA para facilitar el registro y seguimiento de las actividades profesionales de diplomados y egresados.",
     imagen: "/projectos/ProjectSeguimiento.png",
-    boton: "Ver más",
+    boton: "Visitar Proyecto",
+    tags: ["Vue", "PHP", "MySQL"],
+    color: "#8b5cf6",
   },
 ];
 ---
-<div class="relative min-h-screen">
-<!-- Fondo -->
- <div class="absolute inset-0 bg-white dark:bg-gray-950 overflow-hidden">
-  {/* Tech-themed radial gradients */}
-  <div class="absolute inset-0">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_30%)] dark:bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.15),transparent_30%)]" />
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(124,58,237,0.1),transparent_30%)] dark:bg-[radial-gradient(circle_at_70%_80%,rgba(124,58,237,0.15),transparent_30%)]" />
-  </div>
-  
-  {/* Circuit Lines */}
-  <div class="absolute inset-0 overflow-hidden opacity-10 dark:opacity-20">
-    <svg width="100%" height="100%" class="absolute">
-      <pattern id="circuit-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-        <path
-          d="M0 50h40c5.5 0 10 4.5 10 10s4.5 10 10 10h40M50 0v40c0 5.5 4.5 10 10 10s10 4.5 10 10v40"
-          stroke="currentColor"
-          stroke-width="1"
-          fill="none"
-          class="text-gray-400 dark:text-gray-600"
-        />
-      </pattern>
-      <rect width="100%" height="100%" fill="url(#circuit-pattern)" />
-    </svg>
-  </div>
-  
-  {/* Binary numbers */}
-  <div class="absolute inset-0 opacity-5 dark:opacity-10">
-    <div class="absolute left-[10%] top-[15%] text-xs font-mono text-gray-900 dark:text-gray-200">0</div>
-    <div class="absolute left-[20%] top-[25%] text-xs font-mono text-gray-900 dark:text-gray-200">1</div>
-    <div class="absolute left-[30%] top-[45%] text-xs font-mono text-gray-900 dark:text-gray-200">0</div>
-    <div class="absolute left-[40%] top-[65%] text-xs font-mono text-gray-900 dark:text-gray-200">1</div>
-    <div class="absolute left-[50%] top-[85%] text-xs font-mono text-gray-900 dark:text-gray-200">0</div>
-    <div class="absolute left-[60%] top-[35%] text-xs font-mono text-gray-900 dark:text-gray-200">1</div>
-    <div class="absolute left-[70%] top-[55%] text-xs font-mono text-gray-900 dark:text-gray-200">0</div>
-    <div class="absolute left-[80%] top-[75%] text-xs font-mono text-gray-900 dark:text-gray-200">1</div>
-    <div class="absolute left-[90%] top-[5%] text-xs font-mono text-gray-900 dark:text-gray-200">0</div>
-  </div>
-</div>
-<!-- COntenido -->
- <div class="relative pt-36 p-10  text-white space-y-16">
-  <h2 class="text-4xl font-bold text-center mb-12">Proyectos</h2>
 
-  {proyectos.map((proyecto, index) => (
-    <div
-      class={`flex flex-col md:flex-row ${
-        index % 2 !== 0 ? "md:flex-row-reverse" : ""
-      } items-center bg-white/10 border border-white/20 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-transform hover:scale-[1.02]`}
-    >
-      <!-- Imagen -->
-      <div class="md:w-1/2 w-full">
-        <img
-          src={proyecto.imagen}
-          alt={proyecto.titulo}
-          class="w-full h-full object-cover"
-        />
-      </div>
+<PageHero
+  label="Portafolio"
+  title='Proyectos <span class="gt">Destacados</span>'
+  description="Una selección de trabajos recientes que demuestran nuestra capacidad para crear soluciones que resuelven problemas del mundo real."
+  accentColor="#6366f1"
+/>
 
-      <!-- Contenido -->
-      <div class="md:w-1/2 w-full p-8 flex flex-col justify-center">
-        <h3 class="text-3xl font-semibold mb-4">{proyecto.titulo}</h3>
-        <p class="text-white/80 mb-6">{proyecto.descripcion}</p>
-        <a
-          href="#"
-          class="bg-gradient-to-r from-purple-500 to-purple-700 px-6 py-3 rounded-lg font-bold text-white hover:from-purple-600 hover:to-purple-800 transition"
-        >
-          {proyecto.boton}
-        </a>
-      </div>
+<section class="projects-section">
+  <div class="projects-inner">
+    <div class="projects-list">
+      {
+        proyectos.map((proyecto, index) => (
+          <article
+            class={`project-card ${index % 2 !== 0 ? "project-card-reverse" : ""}`}
+            style={`--proj-accent: ${proyecto.color}`}
+          >
+            <div class="project-image-cont">
+              <div class="project-image-wrapper">
+                <img
+                  src={proyecto.imagen}
+                  alt={proyecto.titulo}
+                  class="project-img"
+                />
+                <div class="project-overlay" />
+              </div>
+            </div>
+
+            <div class="project-content">
+              <h3 class="project-title">{proyecto.titulo}</h3>
+              <p class="project-desc">{proyecto.descripcion}</p>
+
+              <div class="project-tags">
+                {proyecto.tags.map((tag) => (
+                  <span class="proj-tag">{tag}</span>
+                ))}
+              </div>
+
+              <a href="#" class="project-link">
+                <span>{proyecto.boton}</span>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))
+      }
     </div>
-  ))}
-</div>
-</div>
+  </div>
+</section>
 
+<style>
+  .projects-section {
+    background: var(--color-bg);
+    padding: 5rem 1.5rem;
+  }
+  .projects-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+
+  .project-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .project-card {
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+    }
+    .project-card-reverse {
+      grid-template-columns: 1fr 1.2fr;
+    }
+    .project-card-reverse .project-image-cont {
+      order: 2;
+    }
+    .project-card-reverse .project-content {
+      order: 1;
+    }
+  }
+
+  .project-image-cont {
+    position: relative;
+    border-radius: 24px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  }
+
+  .project-image-wrapper {
+    position: relative;
+    border-radius: 23px;
+    overflow: hidden;
+    aspect-ratio: 16/10;
+    background: #000;
+  }
+  .project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .project-card:hover .project-img {
+    transform: scale(1.05);
+  }
+  .project-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+    pointer-events: none;
+  }
+
+  .project-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .project-title {
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+  }
+  .project-desc {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .proj-tag {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--proj-accent);
+    background: color-mix(in srgb, var(--proj-accent) 15%, transparent);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid color-mix(in srgb, var(--proj-accent) 30%, transparent);
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 1rem;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    width: fit-content;
+  }
+  .project-card:hover .project-link {
+    border-bottom-color: var(--proj-accent);
+    color: var(--proj-accent);
+  }
+  .project-link svg {
+    transition: transform 0.2s;
+  }
+  .project-card:hover .project-link svg {
+    transform: translateX(4px);
+  }
+</style>

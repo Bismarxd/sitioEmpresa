@@ -1,17 +1,172 @@
 ---
 import Navbar from "./Header/Navbar.astro";
-import NavbarMovil from "./Header/NavbarMovil.astro";
 import "../styles/global.css";
 ---
 
-<header class="w-full bg-[#474747da] md:bg-[rgba(37,38,39,0.82)] text-white shadow-lg fixed z-50">
-  <div
-    class="container mx-auto px-2 flex flex-row justify-between items-center text-xl"
-  >
-    <img src="./logo/Logo.ico" class="w-32 text-white" />
-    <!-- Navbar -->
+<header
+  id="site-header"
+  class="w-full fixed top-0 left-0 z-50 transition-all duration-300"
+>
+  <div class="header-inner">
+    <!-- Logo -->
+    <a href="/" class="logo-link" aria-label="BISDEV SOFT - Inicio">
+      <div class="logo-icon">
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="28" height="28" rx="6" fill="url(#logo-grad)"></rect>
+          <path
+            d="M7 8h6a4 4 0 0 1 0 8H7V8zm0 8h7a4 4 0 0 1 0 8H7v-8z"
+            fill="white"
+            opacity="0.9"></path>
+          <defs>
+            <linearGradient
+              id="logo-grad"
+              x1="0"
+              y1="0"
+              x2="28"
+              y2="28"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop offset="0%" stop-color="#00d4ff"></stop>
+              <stop offset="100%" stop-color="#a855f7"></stop>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <span class="logo-text">BISDEV<span class="logo-accent">SOFT</span></span>
+    </a>
+
+    <!-- Navbar desktop -->
     <Navbar />
-    <!-- Navbar para móvil -->
-    <NavbarMovil />
+
+    <!-- Botón hamburguesa (Mobile only) -->
+    <button
+      id="mobile-menu-btn"
+      class="hamburger-btn"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
   </div>
 </header>
+
+<style>
+  #site-header {
+    background: rgba(5, 11, 24, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+  }
+
+  #site-header.scrolled {
+    background: rgba(5, 11, 24, 0.92);
+    border-bottom-color: rgba(0, 212, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 60;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-icon {
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    font-family: var(--font-sans);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.04em;
+  }
+
+  .logo-accent {
+    color: var(--color-cyan);
+  }
+
+  /* ── Hamburger button ── */
+  .hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+
+  @media (min-width: 768px) {
+    .hamburger-btn {
+      display: none;
+    }
+  }
+
+  .hamburger-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease,
+      width 0.3s ease;
+  }
+
+  .hamburger-btn.open .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .hamburger-btn.open .bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .hamburger-btn.open .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+</style>
+
+<script>
+  // Manejo del scroll para el header
+  const header = document.getElementById("site-header");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 20) {
+      header?.classList.add("scrolled");
+    } else {
+      header?.classList.remove("scrolled");
+    }
+  });
+</script>

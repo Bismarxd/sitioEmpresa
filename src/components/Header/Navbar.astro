@@ -1,84 +1,319 @@
 ---
 const currentPath = Astro.url.pathname;
 
+const links = [
+  { href: "/", label: "Inicio" },
+  { href: "/acercaDe", label: "Acerca de" },
+  { href: "/projectos", label: "Proyectos" },
+  { href: "/contacto", label: "Contacto" },
+];
+
+const servicios = [
+  {
+    href: "/desarolloweb",
+    label: "Desarrollo Web",
+    icon: "💻",
+    desc: "Páginas y aplicaciones modernas",
+    color: "var(--color-cyan)",
+  },
+  {
+    href: "/tiendaonline",
+    label: "Tienda Online",
+    icon: "🛒",
+    desc: "E-commerce y ventas 24/7",
+    color: "var(--color-purple)",
+  },
+  {
+    href: "/desarollomovil",
+    label: "Desarrollo Móvil",
+    icon: "📱",
+    desc: "Apps nativas para Android/iOS",
+    color: "#22c55e",
+  },
+  {
+    href: "/mantenimientosoporte",
+    label: "Soporte Técnico",
+    icon: "🛠️",
+    desc: "Mantenimiento y seguridad activa",
+    color: "#eab308",
+  },
+];
 ---
 
-<nav class="text-white hidden md:flex">
-  <div
-    class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between text-xs md:text-xl"
-  >
-    <ul class="flex space-x-6 items-center">
-      <li>
-        <a href="/" class={`hover:text-[#547792] transition ${currentPath === '/' ? 'text-[#547792] font-bold' : ''}`}>Inicio</a>
-      </li>
-      <li>
-        <a href="/acercaDe" class={`hover:text-[#547792] transition ${currentPath === '/acercaDe' ? 'text-[#547792] font-bold' : ''}`}>Acerca de</a>
-      </li>
-      <li>
-        <a href="/projectos" class={`hover:text-[#547792] transition ${currentPath === '/project' ? 'text-[#547792] font-bold' : ''}`}>Proyectos</a>
-      </li>
-
-      <li class="relative">
-        <details class="group">
-          <summary
-            class="cursor-pointer list-none hover:text-[#547792] transition flex items-center"
+<nav class="desktop-nav" aria-label="Navegación principal">
+  <ul class="nav-list">
+    {
+      links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class={`nav-link ${currentPath === link.href ? "active" : ""}`}
           >
-            Servicios
-            <svg
-              class="ml-1 w-4 h-4 transform group-open:rotate-180 transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </summary>
-          <ul
-            class="mt-2 w-48 absolute bg-[#252525] text-white rounded shadow-lg z-10"
-          >
-            <li>
-              <a href="/desarolloweb" class="block px-4 py-2 hover:bg-gray-100"
-                >Desarrollo Web</a
-              >
-            </li>
-            <li>
-              <a href="/tiendaonline" class="block px-4 py-2 hover:bg-gray-100"
-                >Tienda Online</a
-              >
-            </li>
-            <li>
-              <a href="/desarollomovil" class="block px-4 py-2 hover:bg-gray-100"
-                >Desarrollo Móvil</a
-              >
-            </li>
-            <li>
-              <a href="/mantenimientosoporte" class="block px-4 py-2 hover:bg-gray-100"
-                >Mantenimiento y Soporte</a
-              >
-            </li>
-          </ul>
-        </details>
-      </li>
+            {link.label}
+          </a>
+        </li>
+      ))
+    }
 
-      <li>
-        <a href="/contacto" class={`hover:text-[#547792] transition ${currentPath === '/contacto' ? 'text-[#547792] font-bold' : ''}`}>Contacto</a>
-      </li>
-    </ul>
-  </div>
+    <!-- Dropdown Servicios -->
+    <li class="nav-dropdown-wrapper">
+      <button
+        class="nav-link nav-dropdown-trigger"
+        aria-expanded="false"
+        aria-haspopup="true"
+        id="servicios-btn"
+      >
+        Servicios
+        <svg
+          class="dropdown-arrow"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M6 9l6 6 6-6"></path>
+        </svg>
+      </button>
+      <div class="dropdown-menu" id="servicios-menu" role="menu">
+        <div class="dropdown-grid">
+          {
+            servicios.map((s) => (
+              <a
+                href={s.href}
+                class="dropdown-card"
+                role="menuitem"
+                style={`--hv-color: ${s.color}`}
+              >
+                <div class="dropdown-card-icon">{s.icon}</div>
+                <div class="dropdown-card-text">
+                  <span class="dropdown-card-title">{s.label}</span>
+                  <span class="dropdown-card-desc">{s.desc}</span>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <a href="/contacto" class="nav-cta"> Contactar </a>
+    </li>
+  </ul>
 </nav>
 
+<style>
+  .desktop-nav {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+  }
+
+  .nav-link {
+    position: relative;
+    padding: 0.5rem 0.875rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    border-radius: 8px;
+    transition:
+      color 0.2s ease,
+      background 0.2s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: var(--font-sans);
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-cyan), var(--color-purple));
+    border-radius: 1px;
+    transition: width 0.25s ease;
+  }
+
+  .nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: calc(100% - 1.75rem);
+  }
+
+  .nav-link.active {
+    color: var(--color-cyan);
+  }
+
+  /* ── Dropdown ── */
+  .nav-dropdown-wrapper {
+    position: relative;
+    /* Remove position: relative from wrapper on desktop so dropdown can align to the nav container if needed,
+       but leaving it for now and using right-alignment instead of center-alignment */
+  }
+
+  .dropdown-arrow {
+    transition: transform 0.25s ease;
+  }
+
+  .nav-dropdown-wrapper.open .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 15px);
+    /* By default align center, but limit width and allow wrapping */
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: calc(100vw - 2rem);
+    background: rgba(10, 22, 40, 0.95);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1rem;
+    display: none;
+    box-shadow:
+      0 30px 60px -10px rgba(0, 0, 0, 0.7),
+      0 0 0 1px rgba(0, 212, 255, 0.05);
+    z-index: 100;
+  }
+
+  .nav-dropdown-wrapper.open .dropdown-menu {
+    display: block;
+    animation: fade-in-up 0.18s ease-out forwards;
+  }
+
+  .dropdown-grid {
+    display: grid;
+    /* 1 column on smaller tablets, 2 columns on larger screens */
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  @media (min-width: 900px) {
+    .dropdown-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .dropdown-card {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem;
+    border-radius: 12px;
+    text-decoration: none;
+    background: transparent;
+    transition:
+      background 0.2s,
+      transform 0.2s,
+      border-color 0.2s;
+    border: 1px solid transparent;
+    max-width: 280px;
+  }
+
+  .dropdown-card:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: color-mix(in srgb, var(--hv-color) 30%, transparent);
+  }
+
+  .dropdown-card-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+    padding: 0.6rem;
+    background: color-mix(in srgb, var(--hv-color) 12%, transparent);
+    border-radius: 10px;
+    border: 1px solid color-mix(in srgb, var(--hv-color) 20%, transparent);
+  }
+
+  .dropdown-card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .dropdown-card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    transition: color 0.2s;
+  }
+
+  .dropdown-card:hover .dropdown-card-title {
+    color: var(--hv-color);
+  }
+
+  .dropdown-card-desc {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+
+  /* ── CTA button ── */
+  .nav-cta {
+    margin-left: 0.5rem;
+    padding: 0.45rem 1.1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-cyan);
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover {
+    background: var(--color-cyan-dim);
+    border-color: var(--color-cyan);
+    box-shadow: 0 0 16px rgba(0, 212, 255, 0.25);
+  }
+</style>
+
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const currentPath = window.location.pathname;
-    document.querySelectorAll("nav a").forEach((link) => {
-      if (link.getAttribute("href") === currentPath) {
-        link.classList.add("text-[#547792]", "font-bold"); // aquí pones tu estilo
-      }
-    });
+  const btn = document.getElementById("servicios-btn");
+  const wrapper = btn?.closest(".nav-dropdown-wrapper");
+
+  btn?.addEventListener("click", () => {
+    const isOpen = wrapper?.classList.toggle("open");
+    btn.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!wrapper?.contains(e.target as Node)) {
+      wrapper?.classList.remove("open");
+      btn?.setAttribute("aria-expanded", "false");
+    }
   });
 </script>

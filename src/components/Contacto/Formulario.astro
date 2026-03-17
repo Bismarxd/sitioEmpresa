@@ -1,204 +1,300 @@
-<div class="relative min-h-screen">
-  <!-- Fondo -->
-  <div class="absolute inset-0 bg-white dark:bg-gray-950 overflow-hidden">
-    <div class="absolute inset-0 opacity-[0.3] dark:opacity-[0.2]">
-      <svg
-        width="100%"
-        height="100%"
-        viewBox="0 0 1200 600"
-        preserveAspectRatio="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <linearGradient
-            id="wave-gradient-1"
-            x1="0%"
-            y1="0%"
-            x2="100%"
-            y2="0%"
-          >
-            <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"></stop>
-            <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.3"></stop>
-          </linearGradient>
-          <linearGradient
-            id="wave-gradient-2"
-            x1="0%"
-            y1="0%"
-            x2="100%"
-            y2="0%"
-          >
-            <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.3"></stop>
-            <stop offset="100%" stop-color="#ec4899" stop-opacity="0.3"></stop>
-          </linearGradient>
-          <linearGradient
-            id="wave-gradient-3"
-            x1="0%"
-            y1="0%"
-            x2="100%"
-            y2="0%"
-          >
-            <stop offset="0%" stop-color="#ec4899" stop-opacity="0.3"></stop>
-            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.3"></stop>
-          </linearGradient>
-        </defs>
+---
+import PageHero from "../../components/PageHero.astro";
+---
 
-        <path
-          d="M0,50 C100,100 200,0 300,50 C400,100 500,0 600,50 C700,100 800,0 900,50 C1000,100 1100,0 1200,50 V600 H0 Z"
-          fill="url(#wave-gradient-1)"></path>
-        <path
-          d="M0,150 C100,200 200,100 300,150 C400,200 500,100 600,150 C700,200 800,100 900,150 C1000,200 1100,100 1200,150 V600 H0 Z"
-          fill="url(#wave-gradient-2)"></path>
-        <path
-          d="M0,250 C100,300 200,200 300,250 C400,300 500,200 600,250 C700,300 800,200 900,250 C1000,300 1100,200 1200,250 V600 H0 Z"
-          fill="url(#wave-gradient-3)"></path>
-      </svg>
-    </div>
-    <div
-      class="absolute inset-0 bg-gradient-to-b from-white via-white/0 to-white dark:from-gray-950 dark:via-gray-950/0 dark:to-gray-950"
-    >
-    </div>
-  </div>
-  <!-- Contenido -->
+<PageHero
+  label="Contacto"
+  title='Hablemos de tu <span class="gt">Proyecto</span>'
+  description="Cuéntanos sobre tu idea y nos pondremos en contacto contigo lo antes posible para hacerla realidad."
+  accentColor="#ec4899"
+/>
 
-  <div class="relative pt-36 p-10 text-white z-30">
-    <div class="form-container">
-      <div class="form">
-        <span class="heading">Contacto</span>
-        <input placeholder="Nombre" type="text" class="input" />
-        <input placeholder="Email" id="mail" type="email" class="input" />
-        <textarea
-          placeholder="Mensaje"
-          rows="10"
-          cols="30"
-          id="message"
-          name="message"
-          class="textarea"></textarea>
-        <div class="button-container">
-          <div class="send-button">Enviar</div>
+<section class="contact-section">
+  <div class="contact-inner">
+    <div class="contact-grid">
+      <!-- Info col -->
+      <div class="contact-info">
+        <h2 class="info-title">Información de Contacto</h2>
+        <p class="info-desc">
+          Estamos listos para transformar tus ideas en soluciones digitales.
+          Envíanos un mensaje o comunícate directamente por nuestros canales.
+        </p>
+
+        <div class="info-items">
+          <div class="info-item">
+            <div class="info-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </div>
+            <div class="info-text">
+              <span class="info-label">Email</span>
+              <a href="mailto:bismarckmaytatintaya@gmail.com" class="info-value"
+                >bismarckmaytatintaya@gmail.com</a
+              >
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <div class="info-text">
+              <span class="info-label">Ubicación</span>
+              <span class="info-value">La Paz, Bolivia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form col -->
+      <div class="contact-form-container">
+        <div class="form-wrapper">
+          <h3 class="form-title">Envíanos un mensaje</h3>
+          <form
+            class="contact-form"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+          >
+            <!-- Web3Forms Access Key (Reemplaza este valor con tu access key cuando la tengas) -->
+            <input
+              type="hidden"
+              name="access_key"
+              value="AQUI_PAGA_TU_ACCESS_KEY"
+            />
+
+            <!-- Configuración para mostrar la validación del bot -->
+            <input
+              type="checkbox"
+              name="botcheck"
+              class="hidden"
+              style="display: none;"
+            />
+
+            <!-- Redirección (Opcional) -->
+            <!-- <input type="hidden" name="redirect" value="https://tupagina.com/gracias" /> -->
+
+            <div class="input-group">
+              <label for="name">Nombre completo</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Ej. Juan Pérez"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="email">Correo electrónico</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="tucorreo@ejemplo.com"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="message">Mensaje</label>
+              <textarea
+                name="message"
+                id="message"
+                rows="5"
+                placeholder="Cuéntanos sobre tu proyecto..."
+                class="form-textarea"
+                required></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="btn-primary"
+              style="width: 100%; justify-content: center; margin-top: 1rem; background: linear-gradient(135deg, #ec4899, #be185d);"
+            >
+              Enviar mensaje
+            </button>
+          </form>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <style>
-  .orange {
-    color: #0180ff;
+  .contact-section {
+    background: var(--color-bg);
+    padding: 5rem 1.5rem;
+  }
+  .contact-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  @media (min-width: 1024px) {
+    .contact-grid {
+      grid-template-columns: 5fr 7fr;
+    }
   }
 
-  .form-container {
-    max-width: 700px;
-    margin: 30px;
-    background-color: #001925;
-    padding: 30px;
-    border-left: 5px solid #0180ff;
-    clip-path: polygon(
-      0 0,
-      100% 0,
-      100% calc(100% - 20px),
-      calc(100% - 20px) 100%,
-      0 100%
-    );
-  }
-
-  .heading {
-    display: block;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin-bottom: 20px;
-  }
-
-  .form-container .form .input {
-    color: #87a4b6;
-    width: 100%;
-    background-color: #002733;
-    border: none;
-    outline: none;
-    padding: 10px;
-    margin-bottom: 20px;
-    font-weight: bold;
-    transition: all 0.2s ease-in-out;
-    border-left: 1px solid transparent;
-  }
-
-  .form-container .form .input:focus {
-    border-left: 5px solid #0180ff;
-  }
-
-  .form-container .form .textarea {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    outline: none;
-    background-color: #013747;
-    color: #0180ff;
-    font-weight: bold;
-    resize: none;
-    max-height: 150px;
-    margin-bottom: 20px;
-    border-left: 1px solid transparent;
-    transition: all 0.2s ease-in-out;
-  }
-
-  .form-container .form .textarea:focus {
-    border-left: 5px solid #0180ff;
-  }
-
-  .form-container .form .button-container {
+  .contact-info {
     display: flex;
-    gap: 10px;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .info-title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: #fff;
+  }
+  .info-desc {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
   }
 
-  .form-container .form .button-container .send-button {
-    flex-basis: 70%;
-    background: #0180ff;
-    padding: 10px;
-    color: #ebebeb;
-    text-align: center;
-    font-weight: bold;
-    border: 1px solid transparent;
-    transition: all 0.2s ease-in-out;
+  .info-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+  .info-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(236, 72, 153, 0.1);
+    color: #ec4899;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .info-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  .info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .info-label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .info-value {
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  a.info-value:hover {
+    color: #ec4899;
   }
 
-  .form-container .form .button-container .send-button:hover {
-    background: transparent;
-    border: 1px solid #0180ff;
-    color: #0180ff;
+  /* Form */
+  .contact-form-container {
+    perspective: 1000px;
   }
-
-  .form-container .form .button-container .reset-button-container {
-    filter: drop-shadow(1px 1px 0px #0180ff);
-    flex-basis: 30%;
-  }
-
-  .form-container
-    .form
-    .button-container
-    .reset-button-container
-    .reset-button {
+  .form-wrapper {
+    background: rgba(10, 22, 40, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     position: relative;
-    text-align: center;
-    padding: 10px;
-    color: #0180ff;
-    font-weight: bold;
-    background: #001925;
-    clip-path: polygon(
-      0 0,
-      100% 0,
-      100% calc(100% - 10px),
-      calc(100% - 10px) 100%,
-      0 100%
-    );
-    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+  }
+  @media (min-width: 640px) {
+    .form-wrapper {
+      padding: 3rem;
+    }
+  }
+  .form-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ec4899, #be185d);
+  }
+  .form-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2rem;
   }
 
-  .form-container
-    .form
-    .button-container
-    .reset-button-container
-    .reset-button:hover {
-    background: #0180ff;
-    color: #001925;
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .input-group label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+  }
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    transition:
+      border-color 0.2s,
+      background 0.2s;
+  }
+  .form-input:focus,
+  .form-textarea:focus {
+    outline: none;
+    border-color: #ec4899;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .form-textarea {
+    resize: vertical;
+    min-height: 120px;
   }
 </style>
