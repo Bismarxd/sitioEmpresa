@@ -190,9 +190,9 @@ const servicios = [
   .dropdown-menu {
     position: absolute;
     top: calc(100% + 15px);
-    /* By default align center, but limit width and allow wrapping */
-    left: 50%;
-    transform: translateX(-50%);
+    /* Alinealo a la derecha para que no se salga de la pantalla al estar el menu a la derecha */
+    right: 0;
+    left: auto;
     width: max-content;
     max-width: calc(100vw - 2rem);
     background: rgba(10, 22, 40, 0.95);
@@ -302,18 +302,27 @@ const servicios = [
 </style>
 
 <script>
-  const btn = document.getElementById("servicios-btn");
-  const wrapper = btn?.closest(".nav-dropdown-wrapper");
+  document.addEventListener("astro:page-load", () => {
+    const btn = document.getElementById("servicios-btn");
+    const wrapper = btn?.closest(".nav-dropdown-wrapper");
 
-  btn?.addEventListener("click", () => {
-    const isOpen = wrapper?.classList.toggle("open");
-    btn.setAttribute("aria-expanded", String(isOpen));
-  });
+    // Remove any previous listener to avoid duplicates
+    const clickHandler = () => {
+      const isOpen = wrapper?.classList.toggle("open");
+      btn?.setAttribute("aria-expanded", String(isOpen));
+    };
 
-  document.addEventListener("click", (e) => {
-    if (!wrapper?.contains(e.target as Node)) {
-      wrapper?.classList.remove("open");
-      btn?.setAttribute("aria-expanded", "false");
-    }
+    btn?.removeEventListener("click", clickHandler);
+    btn?.addEventListener("click", clickHandler);
+
+    const outsideClickHandler = (e: MouseEvent) => {
+      if (!wrapper?.contains(e.target as Node)) {
+        wrapper?.classList.remove("open");
+        btn?.setAttribute("aria-expanded", "false");
+      }
+    };
+
+    document.removeEventListener("click", outsideClickHandler);
+    document.addEventListener("click", outsideClickHandler);
   });
 </script>
